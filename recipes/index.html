@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Food Recipes</title>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#">Recipes</a>
+    </nav>
+
+    <!-- Recipe search section -->
+    <div class="recipe-search">
+        <input type="text" class="recipe" placeholder="Find a Recipe...">
+        <button class="button">SEARCH</button>
+        <div class="suggestions"></div> <!-- Suggestions for recipe names -->
+    </div>
+
+    <!-- Header section with search instructions -->
+    <div id="header">
+        <p>Search By Name</p>
+    </div>
+
+    <!-- Favorite recipes section -->
+    <section id="favorites">
+        <h3>Your Favorite Recipes</h3>
+        <div class="favorite-recipes grid-layout"></div> <!-- Container for displaying favorite recipes -->
+    </section>
+
+    <!-- Modal for displaying detailed recipe information -->
+    <div id="recipeModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span> <!-- Close button for the modal -->
+            <h2 class="modal-title">Recipe Title</h2> <!-- Title of the recipe -->
+            <img src="" alt="Recipe Image" class="modal-img"> <!-- Recipe image -->
+            <p class="modal-description">Recipe Description</p> <!-- Description of the recipe -->
+            <ul class="modal-ingredients"></ul> <!-- List of ingredients -->
+            <div class="nutrition-info">Nutrition Information</div> <!-- Nutritional information -->
+            <button class="favorite-button">Add to Favorites</button> <!-- Button to add/remove from favorites -->
+        </div>
+    </div>
+
+    <!-- Linking the JavaScript file for functionality -->
+    <script src="script.js"></script>
+</body>
+</html>

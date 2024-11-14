@@ -1,0 +1,429 @@
+/* Main style for the page body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Style for the search container */
+.movie-search-container {
+    padding: 20px;
+    text-align: center;
+    background-color: #222;
+    color: white;
+    position: relative;
+}
+
+/* Style for the search input field */
+.movie-search {
+    padding: 10px;
+    width: 70%;
+    font-size: 16px;
+    border-radius: 25px;
+    border: 2px solid #ddd;
+    background-color: #333;
+    color: white;
+    outline: none;
+    transition: width 0.3s ease, border-color 0.3s ease;
+}
+
+/* Placeholder style for the search input */
+.movie-search::placeholder {
+    color: #ccc;
+    font-style: italic;
+}
+
+/* Style when search input is focused */
+.movie-search:focus {
+    width: 80%;
+    border-color: #007bff;
+}
+
+/* Style for changing placeholder color on focus */
+.movie-search:focus::placeholder {
+    color: #fff;
+}
+
+/* Extra style to increase search field width on focus */
+.movie-search-container .movie-search:focus {
+    width: 80%;
+}
+
+/* Style for the sorting container */
+.sort-container {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 250px;
+    transition: all 0.3s ease;
+}
+
+/* Style for sorting label */
+.sort-container label {
+    font-size: 16px;
+    color: #555;
+    font-weight: bold;
+}
+
+/* Style for sorting select dropdown */
+.sort-container select {
+    padding: 12px 20px;
+    font-size: 14px;
+    border: 2px solid #007bff;
+    border-radius: 50px;  /* Rounded appearance */
+    outline: none;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    appearance: none; /* Removes default arrow style */
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    width: 180px; /* Width for better visibility */
+}
+
+/* Hide default arrow on IE */
+.sort-container select::-ms-expand {
+    display: none;
+}
+
+/* Style when select dropdown is focused */
+.sort-container select:focus {
+    border-color: #0056b3;
+    background-color: #fff;
+}
+
+/* Hover effect on select dropdown */
+.sort-container select:hover {
+    background-color: #f1f1f1;
+}
+
+/* Custom arrow added as a pseudo-element */
+.sort-container select::after {
+    content: " ▼";
+    position: absolute;
+    right: 15px;
+    font-size: 12px;
+    color: #555;
+}
+
+/* Change arrow style when focused */
+.sort-container select:focus::after {
+    content: " ▲";
+    color: #007bff;
+}
+
+/* Animation on state change */
+.sort-container select:hover {
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Style for search suggestions */
+.suggestions {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    width: 70%;
+    max-height: 300px;
+    overflow-y: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 100;
+}
+
+/* Style for each suggestion item */
+.suggestion-item {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Hover effect for suggestion item */
+.suggestion-item:hover {
+    background-color: #ddd;
+}
+
+/* Style for suggestion image */
+.suggestion-item img {
+    width: 50px;
+    height: 75px;
+    margin-right: 10px;
+}
+
+/* Style for suggestion text */
+.suggestion-item p {
+    margin: 0;
+    flex: 1;
+}
+
+/* Style for movie cards grid */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Style for each movie card */
+.movie-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect for movie card */
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+/* Style for movie card image */
+.movie-card img {
+    width: 100%;
+    height: 300px; /* Image height */
+    object-fit: cover;
+}
+
+/* Style for movie card text */
+.movie-card h3, .movie-card p {
+    padding: 10px;
+    margin: 0;
+}
+
+/* Modal window styling */
+#movieModal {
+    position: fixed; /* Fixed position on screen */
+    top: 50%; /* 50% from the top */
+    left: 50%; /* 50% from the left */
+    transform: translate(-50%, -50%); /* Centering the modal */
+    width: 80%; /* Modal width */
+    max-width: 600px; /* Max width */
+    background-color: #fff; /* White background */
+    padding: 20px; /* Padding inside modal */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for better effect */
+    z-index: 1000; /* Higher layer index for visibility */
+    display: none; /* Hidden by default */
+}
+
+/* Modal overlay background */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: 999;
+    display: none;
+}
+
+/* Modal content styles */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+/* Close button for the modal */
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #333;
+    color: white;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Hover effect for close button */
+.modal-close:hover {
+    background-color: #555;
+}
+
+/* Modal title styling */
+.modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Modal image styling */
+.modal-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Styles for modal details */
+.modal-synopsis, .modal-rating, .modal-runtime, .modal-cast {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+/* Button for adding to watchlist */
+.add-to-watchlist {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    display: inline-block;
+    font-size: 16px;
+}
+
+/* Hover effect for watchlist button */
+.add-to-watchlist:hover {
+    background-color: #218838;
+}
+
+/* Watchlist container styles */
+.watchlist-movies {
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Text style for watchlist */
+.watchlist-movies p {
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Delete button style */
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+/* Hover effect for delete button */
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* Style for remove from watchlist button */
+.remove-from-watchlist {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+/* Hover effect for remove from watchlist button */
+.remove-from-watchlist:hover {
+    background-color: #c82333;
+}
+
+
+/* General adjustments for mobile screens */
+@media (max-width: 768px) {
+    /* Body padding adjustments */
+    body {
+        padding: 10px;
+    }
+
+    /* Search container */
+    .movie-search-container {
+        padding: 15px;
+    }
+
+    .movie-search {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    /* Movie grid layout */
+    .movie-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+    }
+
+    /* Movie card adjustments */
+    .movie-card {
+        height: auto;
+    }
+
+    .movie-card img {
+        height: 200px;
+    }
+
+    /* Sort container */
+    .sort-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    /* Modal adjustments */
+    .modal-content {
+        width: 90%;
+    }
+
+    /* Suggestions list adjustments */
+    .suggestions {
+        width: 90%;
+        max-height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Further adjustments for small mobile screens */
+    .movie-search {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .sort-container label,
+    .sort-container select {
+        font-size: 12px;
+    }
+
+    .movie-card img {
+        height: 150px;
+    }
+
+    .modal-title {
+        font-size: 20px;
+    }
+
+    .add-to-watchlist,
+    .remove-from-watchlist {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}

@@ -1,0 +1,252 @@
+/* Main styling for the weather app */
+body {
+  /* Set the background image and ensure it covers the entire viewport */
+  background-image: url("https://www.zastavki.com/pictures/1920x1200/2011/Nature_Mountains_The_sun_over_mountains_028859_.jpg");
+  background-size: cover; /* Ensures the background image scales properly */
+  background-position: center; /* Centers the background image */
+  font-family: "Poppins", sans-serif; /* Sets a clean, modern font for the text */
+  color: #fff; /* Sets the text color to white for good contrast */
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Ensures the body takes up the full height of the viewport */
+  overflow: auto; /* Enable scrolling if content overflows */
+
+}
+
+input,
+button {
+  /* Ensure input fields and buttons use the same font for consistency */
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 25px; /* Rounded corners for a modern look */
+  border: none;
+  transition: all 0.3s ease; /* Smooth transition for hover/focus effects */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for depth */
+}
+
+/* Styling for the search input field */
+input[type="text"] {
+  background-color: rgba(255, 255, 255, 0.7); /* Slight transparency for a layered effect */
+  color: #333; /* Dark text color for readability */
+  min-width: 250px; /* Ensures a minimum width for usability */
+  margin-bottom: 20px;
+}
+
+input[type="text"]:focus {
+  outline: none; /* Removes the default outline */
+  padding-left: 20px; /* Adds padding for a visual effect when focused */
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly less transparent when focused */
+}
+
+/* Placeholder text styling */
+input::placeholder {
+  color: #333; /* Matches the color of the input text for consistency */
+}
+
+/* Styling for the geolocation button */
+button,
+#geolocation-button {
+  background-color: #4caf50; /* Green background for a positive feel */
+  color: white;
+  cursor: pointer; /* Pointer cursor to indicate interactivity */
+  margin-top: 15px;
+}
+
+button:hover,
+#geolocation-button:hover {
+  background-color: #45a049; /* Darker green on hover for feedback */
+  transform: scale(1.05); /* Slightly enlarges on hover for emphasis */
+}
+
+/* Styling for the main card container */
+.card {
+  background: rgba(0, 0, 0, 0.7); /* Dark background with slight transparency */
+  width: 100%;
+  max-width: 600px; /* Limits the width for readability */
+  height: 85%; /* Makes the card occupy most of the viewport */
+  padding: 3em; /* Adds space inside the card */
+  text-align: center;
+  border-radius: 30px; /* Rounded corners for a modern feel */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+}
+
+/* Styling for weather information */
+.weather {
+  font-size: 2rem; /* Larger font for prominent display */
+  text-align: center;
+}
+
+.weather h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.weather img {
+  width: 50px;
+  height: 50px;
+  margin-left: 10px; /* Adds space between the text and icon */
+}
+
+.more-info p {
+  font-size: 1.2rem; /* Slightly larger for emphasis */
+}
+
+.more-info span {
+  font-weight: 600; /* Bold for highlighting */
+}
+
+/* Styling for the 5-day forecast */
+.forecast {
+  display: flex;
+  justify-content: space-around; /* Even spacing between items */
+  margin-top: 20px;
+  gap: 10px; /* Adds space between forecast items */
+}
+
+.daily-forecast {
+  background: rgba(255, 255, 255, 0.15); /* Slight transparency for effect */
+  padding: 15px; /* Adds padding inside each forecast box */
+  border-radius: 10px; /* Rounded corners */
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  transition: transform 0.3s ease; /* Smooth transition for hover */
+}
+
+.daily-forecast:hover {
+  transform: translateY(-5px); /* Lifts the element on hover */
+}
+
+.daily-forecast img {
+  width: 40px;
+  height: 40px;
+}
+
+.daily-forecast h3 {
+  font-size: 1.1rem; /* Adjusted size for readability */
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+.daily-forecast p,
+.daily-forecast small {
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Styling for the temperature unit toggle */
+#unit-toggle {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background-color: #ccc; /* Default background color */
+  border-radius: 15px; /* Rounded slider */
+  transition: background-color 0.3s ease; /* Smooth transition on toggle */
+  cursor: pointer; /* Pointer cursor for interactivity */
+}
+
+#unit-toggle:checked {
+  background-color: #4caf50; /* Changes color when toggled */
+}
+
+#unit-toggle:before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 22px;
+  height: 22px;
+  background-color: white; /* Slider color */
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  transition: transform 0.3s ease; /* Smooth movement */
+}
+
+#unit-toggle:checked:before {
+  transform: translateX(30px); /* Moves slider to the right when checked */
+}
+
+/* Wrapper to style the toggle as a block element */
+.unit-toggle-wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+/* Styling for search suggestions */
+#suggestions-list {
+  display: none; /* Hidden by default */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+  border-radius: 10px;
+  max-width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+#suggestions-list li {
+  padding: 10px; /* Padding for readability */
+  cursor: pointer; /* Pointer cursor for interactivity */
+  transition: background 0.3s ease; /* Smooth background change on hover */
+}
+
+#suggestions-list li:hover {
+  background: rgba(0, 0, 0, 0.1); /* Slightly darkens on hover for effect */
+}
+
+
+/* Main styling adjustments for mobile devices */
+@media (max-width: 600px) {
+  body {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+  }
+
+  .card {
+    width: 100%;
+    padding: 1.5em;
+  }
+
+  input[type="text"] {
+    min-width: 200px;
+    margin-bottom: 10px;
+  }
+
+  .forecast {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .daily-forecast {
+    width: 100%;
+    padding: 10px;
+  }
+
+  #unit-toggle {
+    width: 50px;
+    height: 25px;
+  }
+
+  #unit-toggle:before {
+    width: 18px;
+    height: 18px;
+  }
+
+  .weather {
+    font-size: 1.5rem;
+  }
+
+  .weather h2 {
+    font-size: 1.3rem;
+  }
+
+  .daily-forecast h3 {
+    font-size: 1rem;
+  }
+}

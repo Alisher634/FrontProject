@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies App</title>
+    <!-- Link to the external CSS file for styling -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <!-- Main title of the app -->
+        <h1>Movies App</h1>
+        <!-- Search bar for searching movies by title -->
+        <input type="text" class="movie-search" placeholder="Search movies...">
+        <!-- Placeholder for search suggestions -->
+        <div class="suggestions"></div>
+        <!-- Container for the sorting options dropdown -->
+        <div class="sort-container">
+            <label for="sortOptions">Sort by:</label>
+            <select id="sortOptions">
+                <!-- Option to sort by popularity -->
+                <option value="popularity">Popularity</option>
+                <!-- Option to sort by release date -->
+                <option value="release_date">Release Date</option>
+                <!-- Option to sort by rating -->
+                <option value="vote_average">Rating</option>
+            </select>
+        </div>
+    </header>
+
+    <!-- Grid to display movies fetched from the API or database -->
+    <div class="movie-grid"></div>
+    <!-- Overlay for the modal when displaying movie details -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+
+    <!-- Modal for showing detailed information about a selected movie -->
+    <div id="movieModal" class="modal">
+        <div class="modal-content">
+            <!-- Button to close the modal -->
+            <span class="modal-close">&times;</span>
+            <!-- Title of the selected movie -->
+            <h2 class="modal-title"></h2>
+            <!-- Image or poster of the selected movie -->
+            <img src="" alt="Movie Image" class="modal-img">
+            <!-- Synopsis or description of the selected movie -->
+            <p class="modal-synopsis"></p>
+            <!-- Rating of the movie -->
+            <p><strong>Rating:</strong> <span class="modal-rating"></span></p>
+            <!-- Runtime of the movie -->
+            <p><strong>Runtime:</strong> <span class="modal-runtime"></span> minutes</p>
+            <!-- Section for displaying cast of the movie -->
+            <h3>Cast</h3>
+            <ul class="modal-cast"></ul>
+            <!-- Button to add the movie to the user's watchlist -->
+            <button class="add-to-watchlist">Add to Watchlist</button>
+            <!-- Button to remove the movie from the watchlist, initially hidden -->
+            <button class="remove-from-watchlist" style="display:none;">Remove from Watchlist</button>
+        </div>
+    </div>
+
+    <!-- Section to display movies that the user added to their watchlist -->
+    <section id="watchlist">
+        <h3>Your Watchlist</h3>
+        <div class="watchlist-movies"></div>
+    </section>
+
+    <!-- Link to the external JavaScript file for handling interactivity -->
+    <script src="script.js"></script>
+</body>
+</html>

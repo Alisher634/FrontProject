@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /> <!-- Specifies the character encoding for the document, ensuring proper text rendering -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Makes the layout responsive to the device's screen width -->
+  <title>Weather App</title> <!-- Sets the title of the web page that appears in the browser tab -->
+  <link rel="stylesheet" type="text/css" href="styles.css" /> <!-- Links to the external CSS file for styling -->
+</head>
+<body>
+  <div class="card"> <!-- Main container for the weather app, styled as a card -->
+    <form id="form"> <!-- Form element that contains the search input field -->
+      <div id="search-container"> <!-- Wrapper for the search input and suggestion list -->
+        <input
+          type="text"
+          id="search"
+          placeholder="Search by location" <!-- Placeholder text guiding users on what to input -->
+          autocomplete="off" <!-- Prevents browser from showing previously entered values -->
+        />
+        <ul id="suggestions-list"></ul> <!-- Unordered list to display location search suggestions -->
+      </div>
+    </form>
+    <button id="geolocation-button">Get Current Location Weather</button> <!-- Button for fetching weather based on user's geolocation -->
+    <div>
+      <label for="unit-toggle">Switch temperature </label> <!-- Label for the unit toggle checkbox -->
+      <input type="checkbox" id="unit-toggle" /> <!-- Checkbox for toggling between temperature units (e.g., Celsius and Fahrenheit) -->
+    </div>
+    <main id="main"></main> <!-- Main section where detailed weather data will be rendered -->
+  </div>
+  <script src="script.js"></script> <!-- External JavaScript file to handle app logic and interactions -->
+</body>
+</html>
